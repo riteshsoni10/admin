@@ -1,17 +1,17 @@
 <?php
 
 $server="localhost";
-        $database="admin";
-        $username="root";
+        $database="cloud";
+        $username="student";
         $password="Soni@1995";
         
- if($connect=mysql_connect($server,$username,$password,$database))
+ if($connect=mysqli_connect($server,$username,$password,$database))
  {
      
  }
  else
      {
-     echo "error";
+     echo "Connection to database error";
  }
  
      
