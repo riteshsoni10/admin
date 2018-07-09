@@ -2,20 +2,19 @@
 
 $f=$_POST['first'];
 $l=$_POST['last'];
-$e=$_POST['email'];
+$e=$_GET['email'];
 $ph=$_POST['phone'];
 $p=$_POST['password'];
 
 include("includes/connect.php");
 
-$heart="UPDATE student SET fname='$f',lname='$l',email='$e',phone='$ph',password='$p' WHERE email=$e";
-
-if(mysqli_query($connect,$heart))
+$h="UPDATE student SET fname='$f',lname='$l',phone='$ph',password='$p' WHERE email='$e';";
+if(mysqli_query($connect,$h))
 {
-    header("location:admin.php");
+   header("location:index.php");
 }
 else
 {
-    echo "some error occoured";
+    echo " error occoured while updating into database";
 }
 ?>

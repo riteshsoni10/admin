@@ -1,8 +1,11 @@
 <?php
-$email = $_GET['email'];
+$email = $_GET['id'];
 include("includes/connect.php");
-$cast = "select * from student where email=$email";
+$cast = "select * from student where email='$email'";
 $res = mysqli_query($connect, $cast);
+
+
+
 
 $data = mysqli_fetch_array($res);
 ?>
@@ -22,7 +25,7 @@ $data = mysqli_fetch_array($res);
                 </h1>
 
             </div>
-            <form method="POST" action="u_process.php">
+            <form method="POST" action="u_process.php?email=<?php echo $email;?> ">
                  <div class="form-group">
                     <label  class="col-md-4 control-label"> First Name :</label>
                     <div class="col-md-8">
@@ -35,12 +38,6 @@ $data = mysqli_fetch_array($res);
                         <input type="text" name="last" value="<?php echo $data['lname']; ?>" class="form-control" required/>
                     </div>
                 </div> 
-                <div class="form-group">
-                    <label class="col-md-4 control-label"> Email Id :</label>
-                    <div class="col-md-8">
-                        <input type="email" name="email" value="<?php echo $data['email']; ?>" class="form-control" required />
-                    </div>
-                </div>
                 <div class="form-group">
                     <label class="col-md-4 control-label"> Mobile No:</label>
                     <div class="col-md-8">
